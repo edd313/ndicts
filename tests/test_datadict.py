@@ -29,6 +29,17 @@ def test_arithmetics():
     assert dd2 % dd1 == DataDict.from_product(*iterables, value=v2 % v1)
 
 
+def test_arithmetics_extract():
+    """Extract a DataDict, and perform an operation back with the original one"""
+    dd = DataDict.from_product("ab", "ab", value=2)
+    dd_extract = dd.extract["", "b"]
+    assert dd - dd_extract == DataDict({"a": {"a": 2, "b": 0}, "b": {"a": 2, "b": 0}})
+
+    dd = DataDict.from_product("ab", "ab", value=2)
+    dd_extract = dd.extract["a"]
+    assert dd * dd_extract == DataDict({"a": {"a": 4, "b": 4}, "b": {"a": 2, "b": 2}})
+
+
 def test_apply():
     dd = DataDict.from_product("ab", "ab", value=1)
     assert dd.apply(lambda x: 2 * x + 1) == DataDict.from_product("ab", "ab", value=3)
