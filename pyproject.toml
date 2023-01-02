@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ndicts"
-version = "0.1.0"
+version = "0.2.0"
 description = "Class to handle nested dictionaries"
 authors = ["Edoardo Cicirello <e.cicirello@protonmail.com>"]
 
