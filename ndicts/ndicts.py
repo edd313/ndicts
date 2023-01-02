@@ -45,6 +45,7 @@ class NestedDict(MutableMapping):
     --------
     Initialise from a nested dictionary.
 
+    # >>> from ndicts import NestedDict
     >>> d = {"a": {"a": 0, "b": 1}, "b": 2}
     >>> nd = NestedDict(d)
     >>> nd
@@ -53,7 +54,7 @@ class NestedDict(MutableMapping):
     Get an item.
 
     >>> nd["a"]
-    0
+    {'a': 0, 'b': 1}
     >>> nd[("a", "b")]
     1
 
@@ -61,7 +62,7 @@ class NestedDict(MutableMapping):
 
     >>> nd[("c", "a")] = 3
     >>> nd
-    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2, 'c': {'a': 3})
+    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2, 'c': {'a': 3}})
 
     Delete an item.
 
