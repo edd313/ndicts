@@ -211,7 +211,7 @@ class _Extractor:
         return item
 
 
-class Arithmetics(ABC):
+class _Arithmetics(ABC):
     """
     Mixin class providing methods for arithmetic operations.
     Useful when all operations share the same base mechanism.
@@ -250,7 +250,7 @@ class Arithmetics(ABC):
         return self * -1
 
 
-class DataDict(NestedDict, Arithmetics):
+class DataDict(NestedDict, _Arithmetics):
     """A NestedDict that supports arithmetics.
     Other methods are included that make DataDict similar to DataFrames"""
 
