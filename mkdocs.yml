@@ -1,0 +1,10 @@
+site_name: ndicts documentation
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          docstring_style: "google"

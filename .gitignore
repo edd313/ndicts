@@ -11,5 +11,8 @@
 # Distribution
 /dist
 
+# Documentation
+/site
+
 # Jupyter notebooks
 */.ipynb_checkpoints
