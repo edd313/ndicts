@@ -8,11 +8,89 @@ from typing import Any, Callable, Iterable
 
 
 class NestedDict(MutableMapping):
-    """Class to represent data organised in nested dictionary"""
+    """
+    Nested dictionary.
+
+    Handle nested dictionaries using an interface
+    similar to standard dictionaries.
+    For most operations, a NestedDict behaves
+    like a nested dictionary that was flattened.
+
+    Parameters
+    ----------
+    dictionary : dict
+        Input nested dictionary.
+    copy : bool, default=False
+        Set to True to copy the input dictionary.
+
+    Methods
+    -------
+    All methods that dictionaries have are available.
+
+    Additionally, there are the following methods.
+    from_product
+    from_tuples
+    copy
+    extract
+    to_dict
+    keys
+    items
+
+    See Also
+    --------
+    NestedDict.from_product : Initialise from cartesian product.
+    NestedDict.from_tuples : Initialise from list of tuples.
+
+    Examples
+    --------
+    Initialise from a nested dictionary.
+
+    >>> d = {"a": {"a": 0, "b": 1}, "b": 2}
+    >>> nd = NestedDict(d)
+    >>> nd
+    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
+
+    Get an item.
+
+    >>> nd["a"]
+    0
+    >>> nd[("a", "b")]
+    1
+
+    Set an item.
+
+    >>> nd[("c", "a")] = 3
+    >>> nd
+    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2, 'c': {'a': 3})
+
+    Delete an item.
+
+    >>> del nd["c"]
+    >>> nd
+    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
+
+    Iterate over keys.
+
+    >>> [key for key in nd]
+    [('a', 'a'), ('a', 'b'), ('b',)]
+    >>> [key for key in nd.keys()]
+    [('a', 'a'), ('a', 'b'), ('b',)]
+
+    Iterate over values.
+
+    >>> [value for value in nd.values()]
+    [0, 1, 2]
+
+    Iterate over items.
+
+    >>> [item for item in nd.items()]
+    [(('a', 'a'), 0), (('a', 'b'), 1), (('b',), 2)]
+
+    """
 
     @classmethod
     def from_product(cls, *args: Iterable, value: Any = None):
-        """Initialize class by cartesian product of the arguments"""
+        """Initialize class by cartesian product of the arguments."""
         instance = cls()
         for key in product(*args):
             instance[key] = value
@@ -20,7 +98,7 @@ class NestedDict(MutableMapping):
 
     @classmethod
     def from_tuples(cls, *args: Iterable, value: Any = None):
-        """Initialize class by providing the keys and a common value"""
+        """Initialize by providing the keys and a common value."""
         ndict = cls()
         for arg in args:
             ndict[arg] = value
@@ -56,7 +134,7 @@ class NestedDict(MutableMapping):
         item[key[-1]] = value
 
     def __delitem__(self, key):
-        """Deletes item, then looks at the level above and checks if it contains an empty dictionary"""
+        """Delete item, then delete levels above if empty."""
         if not isinstance(key, tuple):
             key = (key,)
         new_key, last_key = key[:-1], key[-1]
@@ -89,13 +167,15 @@ class NestedDict(MutableMapping):
 
     @property
     def extract(self):
-        """Extracts item as a NestedDict"""
+        """Extract item as a NestedDict."""
         return _Extractor(self)
 
     def copy(self):
+        """Return a deep copy."""
         return deepcopy(self)
 
     def to_dict(self):
+        """Return a copy as a dictionary."""
         return deepcopy(self._ndict)
 
 
