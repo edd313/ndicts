@@ -9,6 +9,9 @@ plugins:
         python:
           docstring_style: "google"
 
+watch:
+  - ndicts/ndicts.py
+
 nav:
   - Home: index.md
   - installation.md

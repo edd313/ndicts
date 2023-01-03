@@ -9,7 +9,7 @@ python = "^3.8"
 ipykernel = "^6.9.1"
 
 [tool.poetry.dev-dependencies]
-pytest = "^5.2"
+pytest = "^6.0"
 black = "^22.1.0"
 jupyter = "^1.0.0"
 mkdocs = "^1.4.2"
@@ -19,3 +19,6 @@ mkdocs-material = "^8.5.11"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
