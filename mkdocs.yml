@@ -1,0 +1,22 @@
+site_name: ndicts documentation
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings:
+      handlers:
+        python:
+          docstring_style: "google"
+
+watch:
+  - ndicts/ndicts.py
+
+nav:
+  - Home: index.md
+  - installation.md
+  - quickstart.md
+  - API reference:
+    - NestedDict: nested_dict.md
+    - MutableMapping methods: extra_methods.md
+    - DataDict: data_dict.md

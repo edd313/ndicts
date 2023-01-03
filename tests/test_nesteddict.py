@@ -3,7 +3,7 @@
 from itertools import product
 import pytest
 from ndicts import __version__
-from ndicts.ndicts import NestedDict
+from ndicts import NestedDict
 
 
 def test_init():
@@ -130,7 +130,7 @@ def test_to_dict():
 
 
 def test_version():
-    assert __version__ == "0.1.0"
+    assert __version__ == "0.2.0"
 
 
 if __name__ == "__main__":

@@ -1,10 +1,11 @@
 """Tests for the DataDict class"""
 
-from ndicts.ndicts import Arithmetics, DataDict, NestedDict
+from ndicts import DataDict, NestedDict
+from ndicts.ndicts import _Arithmetics
 
 
 def test_inheritance():
-    assert isinstance(DataDict(), (NestedDict, Arithmetics))
+    assert isinstance(DataDict(), (NestedDict, _Arithmetics))
 
 
 def test_arithmetics():
