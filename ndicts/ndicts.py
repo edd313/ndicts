@@ -12,21 +12,19 @@ T = TypeVar('T', bound='Parent')
 
 class NestedDict(MutableMapping):
     """
-    Nested dictionary.
+    Nested dictionary data structure.
 
-    Handle nested dictionaries using an interface
+    Handle nested dictionaries with an interface
     similar to standard dictionaries.
-    For most operations, a NestedDict behaves
-    like a nested dictionary that was flattened.
 
     Args:
         dictionary (dict): Input nested dictionary.
         copy (bool): Set to True to copy the input dictionary.
 
     See Also:
-        NestedDict.from_product : Initialize from cartesian product.
+        NestedDict.from_product: Initialize from cartesian product.
 
-        NestedDict.from_tuples : Initialize from list of tuples.
+        NestedDict.from_tuples: Initialize from list of tuples.
 
     Examples:
         Initialize from a nested dictionary.
@@ -81,7 +79,7 @@ class NestedDict(MutableMapping):
         A common value can be assigned to all keys.
 
         Args:
-            *keys: Each iterable.
+            *keys: Input iterables.
             value: Value assigned to all keys.
 
         Returns:
@@ -150,7 +148,7 @@ class NestedDict(MutableMapping):
                 Either comma-separated values or tuples.
 
         Returns:
-            Item associated to the key.
+            Value associated to the key.
 
         Raises:
             KeyError: If the key does not belong to the NestedDict.
@@ -239,8 +237,7 @@ class NestedDict(MutableMapping):
             >>> nd
             NestedDict({'a': {'aa': {'aaa': 0}}})
 
-            Levels which are left empty after deleting an item
-            are deleted too.
+            Levels which are left empty after deleting an item are deleted too.
 
             >>> del nd["a", "aa", "aaa"]
             >>> nd
@@ -260,11 +257,30 @@ class NestedDict(MutableMapping):
 
         Yield only the keys that are associated to a leaf value.
 
+        Note:
+            NestedDict is a MutableMapping, thus it is possible
+            to iterate over values, keys and items exactly as a dictionary.
+            See the examples.
+
         Examples:
             >>> d = {"a": {"aa": 0, "ab": 1}, "b": 2}
             >>> nd = NestedDict(d)
             >>> [key for key in nd]
             [('a', 'aa'), ('a', 'ab'), ('b',)]
+
+            Alternative to iterate over the keys.
+
+            >>> [key for key in nd.keys()]
+            [('a', 'aa'), ('a', 'ab'), ('b',)]
+
+            Iterate over the leaf values.
+
+            >>> [value for value in nd.values()]
+            [0, 1]
+
+            Iterate over the items.
+            >>> [item for item in nd.items()]
+            [(('a', 'aa'), 0), (('a', 'ab'), 1), (('b',), 2)]
         """
         def wrapped(ndict, key=[]):
             """Traverse the nested dictionary recursively,
@@ -399,7 +415,7 @@ class _Arithmetics(ABC):
 
 class DataDict(NestedDict, _Arithmetics):
     """A NestedDict that supports arithmetics.
-    Other methods are included that make DataDict similar to DataFrames"""
+    Other methods are included that make DataDict similar to DataFrames."""
 
     def _arithmetic_operation(self, other, operation: str, symbol: str):
         """Implements any arithmetic operation, just pass the underlying method as string
@@ -427,7 +443,7 @@ class DataDict(NestedDict, _Arithmetics):
         )
 
     def apply(self, func: Callable, inplace: bool = False):
-        """Apply func to all values"""
+        """Apply func to all values."""
         if inplace:
             for key, leaf in self.items():
                 self[key] = func(leaf)
@@ -438,133 +454,19 @@ class DataDict(NestedDict, _Arithmetics):
             return new_self
 
     def reduce(self, func: Callable, *initial: Any):
-        """Pass func and initial to functools.reduce and apply it to all values"""
+        """Pass func and initial to functools.reduce and apply it to all values."""
         return reduce(func, self.values(), *initial)
 
     def total(self):
-        """Returns sum of all values"""
+        """Returns sum of all values."""
         return sum(self.values())
 
     def mean(self) -> Number:
-        """Returns mean of all values"""
+        """Returns mean of all values."""
         return self.total() / len(self)
 
     def std(self) -> Number:
-        """Returns standard deviation of all values"""
+        """Returns standard deviation of all values."""
         step = self.reduce(lambda a, b: a + (b - self.mean()) ** 2, 0)
         step /= len(self) - 1
         return step**0.5
-
-
-if __name__ == "__main__":
-
-    farm_data = {
-        "T1": {
-            "blade": {"Mx": 10, "My": 0.9, "Mz": 2},
-            "tower": {"Mx": 4, "My": 0.85, "Mz": 3},
-        },
-        "T2": {
-            "tower": {"Mx": 4, "My": 0.0, "Mz": 4},
-            "gearbox": {
-                "Mx": {"sensor_1": 2, "sensor_2": 1},
-                "My": {"sensor_1": 2, "sensor_2": 1},
-            },
-        },
-    }
-
-    # Initialize class from a nested dictionary
-    farm = NestedProperty(farm_data)
-
-    # Use CartesianInit to initialise from lists
-    turbines = ["T" + str(i) for i in range(1, 11)]
-    components = ["blade", "tower", "gearbox"]
-    loads = ["Mx", "My", "Mz"]
-    limits = ["Central", "Lower", "Upper"]
-    other_farm = NestedProperty.from_product(turbines, components, loads, limits)
-    print(other_farm)
-
-    # Loop over values, keys (the path to a leaf), or both
-    print(">>> Loops")
-    for leaf in farm.values():
-        print(leaf)
-
-    for key, leaf in farm.items():
-        print(key, leaf)
-
-    for key in farm.keys():
-        print(key)
-
-    for leaf in farm:
-        print(leaf)
-
-    # Check if a value is present in the values
-    print(">>> is key in NestedDict?")
-    first_key = list(farm.keys())[0]
-    assert first_key in farm
-
-    # Trees are printed as nested dictionaries
-    print(">>> print")
-    print(farm)
-
-    # Number of values
-    print(">>> length")
-    print(len(farm))
-
-    # Assign new value
-    farm["T1", "blade", "Mx"] = 14
-    # Create item if it doesn't exist
-    farm["T100", "blade", "Mx"] = 14
-    # Delete item
-    del farm["T100", "blade", "Mx"]
-
-    # Use tuples to access values
-    assert farm["T2", "tower", "Mx"] == farm_data["T2"]["tower"]["Mx"]
-    # This makes iterating through the data easier,
-    # no nested for loops as in nested dictionaries,
-    # no masks as in dataframes, ie farm[(farm[turbine] == "T1") & ...]
-    my_func = lambda x: x
-    for key, leaf in farm.items():
-        farm[key] = my_func(leaf)
-
-    # Extract data as a NestedDictionary
-    turbine1 = farm.extract["T1"]
-    turbine1_blade = farm.extract["T1", "blade"]
-    all_blades = farm.extract["", "tower"]
-    # Apply the same function to all values, as in dataframes
-    farm.apply(lambda x: x + 1, inplace=True)
-
-    # Logic operations
-    print(">>> != and ==")
-    print(farm != 1)
-    print(farm == farm)
-
-    # Deep copy
-    farm2 = farm.copy()
-    farm2["T1", "blade", "Mx"] = 10
-    assert farm != farm2
-
-    # Operations on all the values which return a single value
-    print(">>> total, mean and std")
-    print(farm.total())
-    print(farm.mean())
-    print(farm.std())
-
-    # Arithmetics between trees that share the same keys
-    print(">>> Arithmetics")
-    print(farm + farm)
-    print(-farm)
-    print(farm - farm)
-    print(farm + 1)
-    print(farm - 1)
-
-    print(farm)
-    print(farm * 2)
-    farm += 1
-    print(farm / 10)
-
-    print(">>> Methods inherited by MutableMapping")
-    print(farm.popitem())
-    farm["T100"] = 0
-    print(farm.pop("T100"))
-    print(farm.get("T100", "get default"))
-    print(farm.setdefault("T100", {"blade": {"Mx": 1}}))

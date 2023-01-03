@@ -15,7 +15,8 @@ watch:
 nav:
   - Home: index.md
   - installation.md
-  - Usage:
-    - quickstart.md
-    - initializers.md
-  - API reference: reference.md
+  - quickstart.md
+  - API reference:
+    - NestedDict: nested_dict.md
+    - MutableMapping methods: extra_methods.md
+    - DataDict: data_dict.md

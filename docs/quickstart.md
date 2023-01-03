@@ -1,10 +1,17 @@
-Create a `NestedDict`, the main data structure of `ndicts`, from a nested dictionary.
+First of all import `NestedDict`, the main data structure of `ndicts`.
+
+```pycon
+>>> from ndicts import NestedDict
+```
+
+Create a `NestedDict` from a nested dictionary.
+
 ```pycon
 >>> d = {"a": {"aa": {"aaa": 0}}, "b": {"ba": 1}}
 >>> nd = NestedDict(d)
 ```
 
-Access deeper levels with an easier syntax.
+Access deeper levels with an easier syntax than that of dictionaries.
 
 ```pycon
 >>> # NestedDict
@@ -27,3 +34,5 @@ Iterate over leaf values and their keys.
 0
 1
 ```
+
+See the [API reference](nested_dict.md) for more examples.
