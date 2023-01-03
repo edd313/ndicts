@@ -8,3 +8,11 @@ plugins:
       handlers:
         python:
           docstring_style: "google"
+
+nav:
+  - Home: index.md
+  - installation.md
+  - Usage:
+    - quickstart.md
+    - initializers.md
+  - API reference: reference.md

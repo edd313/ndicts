@@ -4,135 +4,10 @@ from copy import deepcopy
 from itertools import product
 from functools import reduce
 from numbers import Number
-from typing import Any, Callable, Iterable, List, Tuple, Union
+from typing import Any, Callable, Generator, Iterable, List, Tuple, TypeVar, Union
 
 
-numpy_docstring =  """
-    Nested dictionary.
-
-    Handle nested dictionaries using an interface
-    similar to standard dictionaries.
-    For most operations, a NestedDict behaves
-    like a nested dictionary that was flattened.
-
-    Parameters
-    ----------
-    dictionary : dict
-        Input nested dictionary.
-    copy : bool, default=False
-        Set to True to copy the input dictionary.
-
-    See Also
-    --------
-    NestedDict.from_product : Initialize from cartesian product.
-    NestedDict.from_tuples : Initialize from list of tuples.
-
-    Examples
-    --------
-    Initialize from a nested dictionary.
-
-    >>> d = {"a": {"a": 0, "b": 1}, "b": 2}
-    >>> nd = NestedDict(d)
-    >>> nd
-    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
-
-    Get an item.
-
-    >>> nd["a"]
-    {'a': 0, 'b': 1}
-    >>> nd[("a", "b")]
-    1
-
-    Set an item.
-
-    >>> nd[("c", "a")] = 3
-    >>> nd
-    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2, 'c': {'a': 3}})
-
-    Delete an item.
-
-    >>> del nd["c"]
-    >>> nd
-    NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
-
-    Iterate over keys.
-
-    >>> [key for key in nd]
-    [('a', 'a'), ('a', 'b'), ('b',)]
-    >>> [key for key in nd.keys()]
-    [('a', 'a'), ('a', 'b'), ('b',)]
-
-    Iterate over values.
-
-    >>> [value for value in nd.values()]
-    [0, 1, 2]
-
-    Iterate over items.
-
-    >>> [item for item in nd.items()]
-    [(('a', 'a'), 0), (('a', 'b'), 1), (('b',), 2)]
-    """
-
-google_docstring = """
-    Nested dictionary.
-
-    Handle nested dictionaries using an interface
-    similar to standard dictionaries.
-    For most operations, a NestedDict behaves
-    like a nested dictionary that was flattened.
-
-    Args:
-        dictionary (dict): Input nested dictionary.
-        copy (bool, default=False): Set to True to copy the input dictionary.
-
-    See Also:
-        NestedDict.from_product : Initialize from cartesian product.
-        NestedDict.from_tuples : Initialize from list of tuples.
-
-    Examples:
-        Initialize from a nested dictionary.
-
-        >>> d = {"a": {"a": 0, "b": 1}, "b": 2}
-        >>> nd = NestedDict(d)
-        >>> nd
-        NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
-
-        Get an item.
-
-        >>> nd["a"]
-        {'a': 0, 'b': 1}
-        >>> nd[("a", "b")]
-        1
-
-        Set an item.
-
-        >>> nd[("c", "a")] = 3
-        >>> nd
-        NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2, 'c': {'a': 3}})
-
-        Delete an item.
-
-        >>> del nd["c"]
-        >>> nd
-        NestedDict({'a': {'a': 0, 'b': 1}, 'b': 2})
-
-        Iterate over keys.
-
-        >>> [key for key in nd]
-        [('a', 'a'), ('a', 'b'), ('b',)]
-        >>> [key for key in nd.keys()]
-        [('a', 'a'), ('a', 'b'), ('b',)]
-
-        Iterate over values.
-
-        >>> [value for value in nd.values()]
-        [0, 1, 2]
-
-        Iterate over items.
-
-        >>> [item for item in nd.items()]
-        [(('a', 'a'), 0), (('a', 'b'), 1), (('b',), 2)]
-    """
+T = TypeVar('T', bound='Parent')
 
 
 class NestedDict(MutableMapping):
@@ -199,11 +74,11 @@ class NestedDict(MutableMapping):
     """
 
     @classmethod
-    def from_product(cls, *keys: List[Iterable], value: Any = None):
+    def from_product(cls, *keys: List[Iterable], value: Any = None) -> T:
         """
         Initialize a NestedDict from the cartesian product of the keys.
 
-        Assign a value
+        A common value can be assigned to all keys.
 
         Args:
             *keys: Each iterable.
@@ -213,12 +88,13 @@ class NestedDict(MutableMapping):
             NestedDict
 
         Examples:
-            >>> NestedDict.from_product(("A", "B"), ("a", "b"))
+            >>> keys = [("A", "B"), ("a", "b")]
+            >>> NestedDict.from_product(*keys)
             NestedDict({'A': {'a': None, 'b': None}, 'B': {'a': None, 'b': None}})
 
             Initialize with a different value.
 
-            >>> NestedDict.from_product(("A", "B"), ("a", "b"), value=0)
+            >>> NestedDict.from_product(*keys, value=0)
             NestedDict({'A': {'a': 0, 'b': 0}, 'B': {'a': 0, 'b': 0}})
         """
         instance = cls()
@@ -227,15 +103,35 @@ class NestedDict(MutableMapping):
         return instance
 
     @classmethod
-    def from_tuples(cls, *tuples: List[Iterable], value: Any = None):
+    def from_tuples(cls, *tuples: List[Iterable], value: Any = None) -> T:
         """
-        Initialize by providing the keys and a common value."""
+        Initialize a NestedDict from a list of iterables.
+
+        A common value can be assigned to all keys.
+
+        Args:
+            tuples: Tuples corresponding to the keys of the NestedDict.
+            value: Value assigned to all keys.
+
+        Returns:
+            NestedDict
+
+        Examples:
+            >>> tuples = [("a", "aa"), ("b",)]
+            >>> NestedDict.from_tuples(*tuples)
+            NestedDict({'a': {'aa': None}, 'b': None})
+
+            Initialize with a different value.
+
+            >>> NestedDict.from_tuples(*tuples, value=0)
+            NestedDict({'a': {'aa': 0}, 'b': 0})
+        """
         ndict = cls()
         for tuple in tuples:
             ndict[tuple] = value
         return ndict
 
-    def __init__(self, dictionary: dict = None, copy: bool = False):
+    def __init__(self, dictionary: dict = None, copy: bool = False) -> None:
         """
         Initialize a NestedDict from a dictionary.
         
@@ -248,8 +144,6 @@ class NestedDict(MutableMapping):
     def __getitem__(self, key: Union[Any, Tuple[Any]]) -> Any:
         """
         Get item associated to the key.
-
-
 
         Args:
             key:
@@ -285,7 +179,6 @@ class NestedDict(MutableMapping):
             Traceback (most recent call last):
             ...
             KeyError: ('z',)
-
         """
         if not isinstance(key, tuple):
             key = (key,)
@@ -300,7 +193,29 @@ class NestedDict(MutableMapping):
                 raise KeyError(key)
         return item
 
-    def __setitem__(self, key, value):
+    def __setitem__(self, key: Union[Any, Tuple[Any]], value: Any) -> None:
+        """
+        Set the key to the given value.
+
+        If the key does not exist it is created.
+
+        Args:
+            key: Key to be set.
+            value: New value for the key.
+
+        Examples:
+            Set an existing key.
+
+            >>> nd = NestedDict({"a": {"aa": 0}})
+            >>> nd["a", "aa"] = 1
+            >>> nd
+            NestedDict({'a': {'aa': 1}})
+
+            Set a new key.
+            >>> nd["a", "ab"] = 2
+            >>> nd
+            NestedDict({'a': {'aa': 1, 'ab': 2}})
+        """
         if not isinstance(key, tuple):
             key = (key,)
         item = self._ndict
@@ -308,8 +223,29 @@ class NestedDict(MutableMapping):
             item = item.setdefault(k, {})
         item[key[-1]] = value
 
-    def __delitem__(self, key):
-        """Delete item, then delete levels above if empty."""
+    def __delitem__(self, key: Union[Any, Tuple[Any]]) -> None:
+        """
+        Delete item corresponding to the key.
+
+        If the levels above are left empty, they are deleted.
+
+        Args:
+            key: Key as defined in NestedDict.__getitem__
+
+        Examples:
+            >>> d = {"a": {"aa": {"aaa": 0}}, "b": 1}
+            >>> nd = NestedDict(d)
+            >>> del nd["b"]
+            >>> nd
+            NestedDict({'a': {'aa': {'aaa': 0}}})
+
+            Levels which are left empty after deleting an item
+            are deleted too.
+
+            >>> del nd["a", "aa", "aaa"]
+            >>> nd
+            NestedDict({})
+        """
         if not isinstance(key, tuple):
             key = (key,)
         new_key, last_key = key[:-1], key[-1]
@@ -318,8 +254,21 @@ class NestedDict(MutableMapping):
         if (new_key != ()) & (self[new_key] == {}):
             self.__delitem__(new_key)
 
-    def __iter__(self):
+    def __iter__(self) -> Generator:
+        """
+        Iterate over a NestedDict.
+
+        Yield only the keys that are associated to a leaf value.
+
+        Examples:
+            >>> d = {"a": {"aa": 0, "ab": 1}, "b": 2}
+            >>> nd = NestedDict(d)
+            >>> [key for key in nd]
+            [('a', 'aa'), ('a', 'ab'), ('b',)]
+        """
         def wrapped(ndict, key=[]):
+            """Traverse the nested dictionary recursively,
+            yield the key once a leaf value is reached."""
             if not isinstance(ndict, dict):
                 yield tuple(key)
             else:
@@ -330,14 +279,21 @@ class NestedDict(MutableMapping):
 
         return wrapped(self._ndict)
 
-    def __len__(self):
-        """Number of keys in the nested dictionary"""
-        len = 0
-        for _ in self:
-            len += 1
-        return len
+    def __len__(self) -> int:
+        """
+        Number of leaf values.
 
-    def __repr__(self):
+        Examples:
+            >>> nd = NestedDict({"a": {"aa": 0, "ab": 0}, "b": 0})
+            >>> len(nd)
+            3
+        """
+        length = 0
+        for _ in self:
+            length += 1
+        return length
+
+    def __repr__(self) -> str:
         return f"{self.__class__.__qualname__}({self._ndict})"
 
     @property
@@ -345,7 +301,7 @@ class NestedDict(MutableMapping):
         """Extract item as a NestedDict."""
         return _Extractor(self)
 
-    def copy(self):
+    def copy(self) -> T:
         """Return a deep copy."""
         return deepcopy(self)
 
