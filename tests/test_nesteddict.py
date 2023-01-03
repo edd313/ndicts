@@ -130,7 +130,7 @@ def test_to_dict():
 
 
 def test_version():
-    assert __version__ == "0.2.0"
+    assert __version__ == "0.2.1"
 
 
 if __name__ == "__main__":

@@ -276,7 +276,7 @@ class NestedDict(MutableMapping):
             Iterate over the leaf values.
 
             >>> [value for value in nd.values()]
-            [0, 1]
+            [0, 1, 2]
 
             Iterate over the items.
             >>> [item for item in nd.items()]
@@ -323,6 +323,7 @@ class NestedDict(MutableMapping):
 
         Examples:
              >>> nd = NestedDict.from_product("ab", "xy", value=0)
+             >>> nd
              NestedDict({'a': {'x': 0, 'y': 0}, 'b': {'x': 0, 'y': 0}})
              >>> nd.extract["a"]
              NestedDict({'a': {'x': 0, 'y': 0}})
