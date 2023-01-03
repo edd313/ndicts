@@ -1,0 +1,2415 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+    
+    
+      
+        <title>NestedDict - ndicts documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.975780f9.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="None" data-md-color-accent="None">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ndicts.ndicts.NestedDict" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ndicts documentation" class="md-header__button md-logo" aria-label="ndicts documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ndicts documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NestedDict
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ndicts documentation" class="md-nav__button md-logo" aria-label="ndicts documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ndicts documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        Installation
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        Quickstart
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          API reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          API reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          NestedDict
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        NestedDict
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict" class="md-nav__link">
+    ndicts.ndicts.NestedDict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.extract" class="md-nav__link">
+    extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__delitem__" class="md-nav__link">
+    __delitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__iter__" class="md-nav__link">
+    __iter__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__len__" class="md-nav__link">
+    __len__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__setitem__" class="md-nav__link">
+    __setitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.copy" class="md-nav__link">
+    copy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.from_product" class="md-nav__link">
+    from_product()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.from_tuples" class="md-nav__link">
+    from_tuples()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.to_dict" class="md-nav__link">
+    to_dict()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extra_methods/" class="md-nav__link">
+        MutableMapping methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data_dict/" class="md-nav__link">
+        DataDict
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict" class="md-nav__link">
+    ndicts.ndicts.NestedDict
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.extract" class="md-nav__link">
+    extract
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__delitem__" class="md-nav__link">
+    __delitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__getitem__" class="md-nav__link">
+    __getitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__init__" class="md-nav__link">
+    __init__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__iter__" class="md-nav__link">
+    __iter__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__len__" class="md-nav__link">
+    __len__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.__setitem__" class="md-nav__link">
+    __setitem__()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.copy" class="md-nav__link">
+    copy()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.from_product" class="md-nav__link">
+    from_product()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.from_tuples" class="md-nav__link">
+    from_tuples()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ndicts.ndicts.NestedDict.to_dict" class="md-nav__link">
+    to_dict()
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>NestedDict</h1>
+
+<div class="doc doc-object doc-class">
+
+
+<a id="ndicts.ndicts.NestedDict"></a>
+  <div class="doc doc-contents first">
+      <p class="doc doc-class-bases">
+        Bases: <code><span title="collections.abc.MutableMapping">MutableMapping</span></code></p>
+
+  
+      <p>Nested dictionary data structure.</p>
+<p>Handle nested dictionaries with an interface
+similar to standard dictionaries.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>dictionary</code></td>
+          <td>
+                <code>dict</code>
+          </td>
+          <td><p>Input nested dictionary.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>copy</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td><p>Set to True to copy the input dictionary.</p></td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<details class="see-also">
+  <summary>See Also</summary>
+  <p>NestedDict.from_product: Initialize from cartesian product.</p>
+<p>NestedDict.from_tuples: Initialize from list of tuples.</p>
+</details>
+<p><strong>Examples:</strong></p>
+    <p>Initialize from a nested dictionary.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2})</span>
+</code></pre></div>
+    <p>Get an item.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="go">{&#39;a&#39;: 0, &#39;b&#39;: 1}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)]</span>
+<span class="go">1</span>
+</code></pre></div>
+    <p>Set an item.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2, &#39;c&#39;: {&#39;a&#39;: 3}})</span>
+</code></pre></div>
+    <p>Delete an item.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">nd</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2})</span>
+</code></pre></div>
+    <p>Iterate over keys.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">nd</span><span class="p">]</span>
+<span class="go">[(&#39;a&#39;, &#39;a&#39;), (&#39;a&#39;, &#39;b&#39;), (&#39;b&#39;,)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="go">[(&#39;a&#39;, &#39;a&#39;), (&#39;a&#39;, &#39;b&#39;), (&#39;b&#39;,)]</span>
+</code></pre></div>
+    <p>Iterate over values.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="go">[0, 1, 2]</span>
+</code></pre></div>
+    <p>Iterate over items.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="go">[((&#39;a&#39;, &#39;a&#39;), 0), ((&#39;a&#39;, &#39;b&#39;), 1), ((&#39;b&#39;,), 2)]</span>
+</code></pre></div>
+
+
+        <details class="quote">
+          <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+          <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 13</span>
+<span class="normal"> 14</span>
+<span class="normal"> 15</span>
+<span class="normal"> 16</span>
+<span class="normal"> 17</span>
+<span class="normal"> 18</span>
+<span class="normal"> 19</span>
+<span class="normal"> 20</span>
+<span class="normal"> 21</span>
+<span class="normal"> 22</span>
+<span class="normal"> 23</span>
+<span class="normal"> 24</span>
+<span class="normal"> 25</span>
+<span class="normal"> 26</span>
+<span class="normal"> 27</span>
+<span class="normal"> 28</span>
+<span class="normal"> 29</span>
+<span class="normal"> 30</span>
+<span class="normal"> 31</span>
+<span class="normal"> 32</span>
+<span class="normal"> 33</span>
+<span class="normal"> 34</span>
+<span class="normal"> 35</span>
+<span class="normal"> 36</span>
+<span class="normal"> 37</span>
+<span class="normal"> 38</span>
+<span class="normal"> 39</span>
+<span class="normal"> 40</span>
+<span class="normal"> 41</span>
+<span class="normal"> 42</span>
+<span class="normal"> 43</span>
+<span class="normal"> 44</span>
+<span class="normal"> 45</span>
+<span class="normal"> 46</span>
+<span class="normal"> 47</span>
+<span class="normal"> 48</span>
+<span class="normal"> 49</span>
+<span class="normal"> 50</span>
+<span class="normal"> 51</span>
+<span class="normal"> 52</span>
+<span class="normal"> 53</span>
+<span class="normal"> 54</span>
+<span class="normal"> 55</span>
+<span class="normal"> 56</span>
+<span class="normal"> 57</span>
+<span class="normal"> 58</span>
+<span class="normal"> 59</span>
+<span class="normal"> 60</span>
+<span class="normal"> 61</span>
+<span class="normal"> 62</span>
+<span class="normal"> 63</span>
+<span class="normal"> 64</span>
+<span class="normal"> 65</span>
+<span class="normal"> 66</span>
+<span class="normal"> 67</span>
+<span class="normal"> 68</span>
+<span class="normal"> 69</span>
+<span class="normal"> 70</span>
+<span class="normal"> 71</span>
+<span class="normal"> 72</span>
+<span class="normal"> 73</span>
+<span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span>
+<span class="normal">131</span>
+<span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span>
+<span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">NestedDict</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Nested dictionary data structure.</span>
+
+<span class="sd">    Handle nested dictionaries with an interface</span>
+<span class="sd">    similar to standard dictionaries.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        dictionary (dict): Input nested dictionary.</span>
+<span class="sd">        copy (bool): Set to True to copy the input dictionary.</span>
+
+<span class="sd">    See Also:</span>
+<span class="sd">        NestedDict.from_product: Initialize from cartesian product.</span>
+
+<span class="sd">        NestedDict.from_tuples: Initialize from list of tuples.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Initialize from a nested dictionary.</span>
+
+<span class="sd">        &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;a&quot;: 0, &quot;b&quot;: 1}, &quot;b&quot;: 2}</span>
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict(d)</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2})</span>
+
+<span class="sd">        Get an item.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd[&quot;a&quot;]</span>
+<span class="sd">        {&#39;a&#39;: 0, &#39;b&#39;: 1}</span>
+<span class="sd">        &gt;&gt;&gt; nd[(&quot;a&quot;, &quot;b&quot;)]</span>
+<span class="sd">        1</span>
+
+<span class="sd">        Set an item.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd[(&quot;c&quot;, &quot;a&quot;)] = 3</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2, &#39;c&#39;: {&#39;a&#39;: 3}})</span>
+
+<span class="sd">        Delete an item.</span>
+
+<span class="sd">        &gt;&gt;&gt; del nd[&quot;c&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 1}, &#39;b&#39;: 2})</span>
+
+<span class="sd">        Iterate over keys.</span>
+
+<span class="sd">        &gt;&gt;&gt; [key for key in nd]</span>
+<span class="sd">        [(&#39;a&#39;, &#39;a&#39;), (&#39;a&#39;, &#39;b&#39;), (&#39;b&#39;,)]</span>
+<span class="sd">        &gt;&gt;&gt; [key for key in nd.keys()]</span>
+<span class="sd">        [(&#39;a&#39;, &#39;a&#39;), (&#39;a&#39;, &#39;b&#39;), (&#39;b&#39;,)]</span>
+
+<span class="sd">        Iterate over values.</span>
+
+<span class="sd">        &gt;&gt;&gt; [value for value in nd.values()]</span>
+<span class="sd">        [0, 1, 2]</span>
+
+<span class="sd">        Iterate over items.</span>
+
+<span class="sd">        &gt;&gt;&gt; [item for item in nd.items()]</span>
+<span class="sd">        [((&#39;a&#39;, &#39;a&#39;), 0), ((&#39;a&#39;, &#39;b&#39;), 1), ((&#39;b&#39;,), 2)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_product</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Iterable</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a NestedDict from the cartesian product of the keys.</span>
+
+<span class="sd">        A common value can be assigned to all keys.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *keys: Input iterables.</span>
+<span class="sd">            value: Value assigned to all keys.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            NestedDict</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; keys = [(&quot;A&quot;, &quot;B&quot;), (&quot;a&quot;, &quot;b&quot;)]</span>
+<span class="sd">            &gt;&gt;&gt; NestedDict.from_product(*keys)</span>
+<span class="sd">            NestedDict({&#39;A&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}, &#39;B&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}})</span>
+
+<span class="sd">            Initialize with a different value.</span>
+
+<span class="sd">            &gt;&gt;&gt; NestedDict.from_product(*keys, value=0)</span>
+<span class="sd">            NestedDict({&#39;A&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}, &#39;B&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">keys</span><span class="p">):</span>
+            <span class="n">instance</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">instance</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">from_tuples</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Iterable</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a NestedDict from a list of iterables.</span>
+
+<span class="sd">        A common value can be assigned to all keys.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tuples: Tuples corresponding to the keys of the NestedDict.</span>
+<span class="sd">            value: Value assigned to all keys.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            NestedDict</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; tuples = [(&quot;a&quot;, &quot;aa&quot;), (&quot;b&quot;,)]</span>
+<span class="sd">            &gt;&gt;&gt; NestedDict.from_tuples(*tuples)</span>
+<span class="sd">            NestedDict({&#39;a&#39;: {&#39;aa&#39;: None}, &#39;b&#39;: None})</span>
+
+<span class="sd">            Initialize with a different value.</span>
+
+<span class="sd">            &gt;&gt;&gt; NestedDict.from_tuples(*tuples, value=0)</span>
+<span class="sd">            NestedDict({&#39;a&#39;: {&#39;aa&#39;: 0}, &#39;b&#39;: 0})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ndict</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+        <span class="k">for</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="n">tuples</span><span class="p">:</span>
+            <span class="n">ndict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="k">return</span> <span class="n">ndict</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a NestedDict from a dictionary.</span>
+
+<span class="sd">        See class docstring.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="k">if</span> <span class="n">copy</span> <span class="k">else</span> <span class="n">dictionary</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get item associated to the key.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            key:</span>
+<span class="sd">                Either comma-separated values or tuples.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Value associated to the key.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">            KeyError: If the key does not belong to the NestedDict.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;a&quot;: 0, &quot;b&quot;: 1}}</span>
+<span class="sd">            &gt;&gt;&gt; nd = NestedDict(d)</span>
+
+<span class="sd">            Get the first level.</span>
+
+<span class="sd">            &gt;&gt;&gt; nd[&quot;a&quot;]</span>
+<span class="sd">            {&#39;a&#39;: 0, &#39;b&#39;: 1}</span>
+
+<span class="sd">            Get a deeper value.</span>
+
+<span class="sd">            &gt;&gt;&gt; nd[&quot;a&quot;, &quot;a&quot;]</span>
+<span class="sd">            0</span>
+
+<span class="sd">            Tuples can be passed too.</span>
+<span class="sd">            &gt;&gt;&gt; nd[(&quot;a&quot;, &quot;b&quot;)]</span>
+<span class="sd">            1</span>
+
+<span class="sd">            An exception is thrown if they key does not exist.</span>
+
+<span class="sd">            &gt;&gt;&gt; nd[&quot;z&quot;]</span>
+<span class="sd">            Traceback (most recent call last):</span>
+<span class="sd">            ...</span>
+<span class="sd">            KeyError: (&#39;z&#39;,)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span>
+
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">item</span>
+
+    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the key to the given value.</span>
+
+<span class="sd">        If the key does not exist it is created.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            key: Key to be set.</span>
+<span class="sd">            value: New value for the key.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            Set an existing key.</span>
+
+<span class="sd">            &gt;&gt;&gt; nd = NestedDict({&quot;a&quot;: {&quot;aa&quot;: 0}})</span>
+<span class="sd">            &gt;&gt;&gt; nd[&quot;a&quot;, &quot;aa&quot;] = 1</span>
+<span class="sd">            &gt;&gt;&gt; nd</span>
+<span class="sd">            NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1}})</span>
+
+<span class="sd">            Set a new key.</span>
+<span class="sd">            &gt;&gt;&gt; nd[&quot;a&quot;, &quot;ab&quot;] = 2</span>
+<span class="sd">            &gt;&gt;&gt; nd</span>
+<span class="sd">            NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1, &#39;ab&#39;: 2}})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">item</span><span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete item corresponding to the key.</span>
+
+<span class="sd">        If the levels above are left empty, they are deleted.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            key: Key as defined in NestedDict.__getitem__</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;aa&quot;: {&quot;aaa&quot;: 0}}, &quot;b&quot;: 1}</span>
+<span class="sd">            &gt;&gt;&gt; nd = NestedDict(d)</span>
+<span class="sd">            &gt;&gt;&gt; del nd[&quot;b&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; nd</span>
+<span class="sd">            NestedDict({&#39;a&#39;: {&#39;aa&#39;: {&#39;aaa&#39;: 0}}})</span>
+
+<span class="sd">            Levels which are left empty after deleting an item are deleted too.</span>
+
+<span class="sd">            &gt;&gt;&gt; del nd[&quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot;]</span>
+<span class="sd">            &gt;&gt;&gt; nd</span>
+<span class="sd">            NestedDict({})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+        <span class="n">new_key</span><span class="p">,</span> <span class="n">last_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">del</span> <span class="bp">self</span><span class="p">[</span><span class="n">new_key</span><span class="p">][</span><span class="n">last_key</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">new_key</span> <span class="o">!=</span> <span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">new_key</span><span class="p">]</span> <span class="o">==</span> <span class="p">{}):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">new_key</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Iterate over a NestedDict.</span>
+
+<span class="sd">        Yield only the keys that are associated to a leaf value.</span>
+
+<span class="sd">        Note:</span>
+<span class="sd">            NestedDict is a MutableMapping, thus it is possible</span>
+<span class="sd">            to iterate over values, keys and items exactly as a dictionary.</span>
+<span class="sd">            See the examples.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;aa&quot;: 0, &quot;ab&quot;: 1}, &quot;b&quot;: 2}</span>
+<span class="sd">            &gt;&gt;&gt; nd = NestedDict(d)</span>
+<span class="sd">            &gt;&gt;&gt; [key for key in nd]</span>
+<span class="sd">            [(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+
+<span class="sd">            Alternative to iterate over the keys.</span>
+
+<span class="sd">            &gt;&gt;&gt; [key for key in nd.keys()]</span>
+<span class="sd">            [(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+
+<span class="sd">            Iterate over the leaf values.</span>
+
+<span class="sd">            &gt;&gt;&gt; [value for value in nd.values()]</span>
+<span class="sd">            [0, 1]</span>
+
+<span class="sd">            Iterate over the items.</span>
+<span class="sd">            &gt;&gt;&gt; [item for item in nd.items()]</span>
+<span class="sd">            [((&#39;a&#39;, &#39;aa&#39;), 0), ((&#39;a&#39;, &#39;ab&#39;), 1), ((&#39;b&#39;,), 2)]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="n">ndict</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Traverse the nested dictionary recursively,</span>
+<span class="sd">            yield the key once a leaf value is reached.&quot;&quot;&quot;</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ndict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">ndict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="n">key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                    <span class="k">yield from</span> <span class="n">wrapped</span><span class="p">(</span><span class="n">branch</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                    <span class="n">key</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="n">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Number of leaf values.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">            &gt;&gt;&gt; nd = NestedDict({&quot;a&quot;: {&quot;aa&quot;: 0, &quot;ab&quot;: 0}, &quot;b&quot;: 0})</span>
+<span class="sd">            &gt;&gt;&gt; len(nd)</span>
+<span class="sd">            3</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">length</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="si">}</span><span class="s2">)&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">extract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get item as a NestedDict.</span>
+
+<span class="sd">        Instead of a dict or a value, a NestedDict is returned.</span>
+<span class="sd">        The method can be used for filtering.</span>
+<span class="sd">        An empty string &quot;&quot; can be used as a wildcard to match all levels.</span>
+
+<span class="sd">        Examples:</span>
+<span class="sd">             &gt;&gt;&gt; nd = NestedDict.from_product(&quot;ab&quot;, &quot;xy&quot;, value=0)</span>
+<span class="sd">             NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
+<span class="sd">             &gt;&gt;&gt; nd.extract[&quot;a&quot;]</span>
+<span class="sd">             NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
+
+<span class="sd">             Use the wildcard to extract all items with &quot;x&quot; on the second level.</span>
+<span class="sd">             &gt;&gt;&gt; nd.extract[&quot;&quot;, &quot;x&quot;]</span>
+<span class="sd">             NestedDict({&#39;a&#39;: {&#39;x&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0}})</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">_Extractor</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a deep copy.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a copy as a dictionary.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+        </details>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.extract" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">extract</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get item as a NestedDict.</p>
+<p>Instead of a dict or a value, a NestedDict is returned.
+The method can be used for filtering.
+An empty string "" can be used as a wildcard to match all levels.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="o">.</span><span class="n">extract</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
+</code></pre></div>
+    <p>Use the wildcard to extract all items with "x" on the second level.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="o">.</span><span class="n">extract</span><span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">]</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;x&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0}})</span>
+</code></pre></div>
+  </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__delitem__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Delete item corresponding to the key.</p>
+<p>If the levels above are left empty, they are deleted.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>key</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[<span title="typing.Any">Any</span>, <span title="typing.Tuple">Tuple</span>[<span title="typing.Any">Any</span>]]</code>
+          </td>
+          <td><p>Key as defined in NestedDict.<strong>getitem</strong></p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;aa&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;aaa&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}},</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">nd</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;aa&#39;: {&#39;aaa&#39;: 0}}})</span>
+</code></pre></div>
+    <p>Levels which are left empty after deleting an item are deleted too.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="p">,</span> <span class="s2">&quot;aaa&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({})</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delete item corresponding to the key.</span>
+
+<span class="sd">    If the levels above are left empty, they are deleted.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key: Key as defined in NestedDict.__getitem__</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;aa&quot;: {&quot;aaa&quot;: 0}}, &quot;b&quot;: 1}</span>
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict(d)</span>
+<span class="sd">        &gt;&gt;&gt; del nd[&quot;b&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;aa&#39;: {&#39;aaa&#39;: 0}}})</span>
+
+<span class="sd">        Levels which are left empty after deleting an item are deleted too.</span>
+
+<span class="sd">        &gt;&gt;&gt; del nd[&quot;a&quot;, &quot;aa&quot;, &quot;aaa&quot;]</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+    <span class="n">new_key</span><span class="p">,</span> <span class="n">last_key</span> <span class="o">=</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">key</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">del</span> <span class="bp">self</span><span class="p">[</span><span class="n">new_key</span><span class="p">][</span><span class="n">last_key</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">new_key</span> <span class="o">!=</span> <span class="p">())</span> <span class="o">&amp;</span> <span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">new_key</span><span class="p">]</span> <span class="o">==</span> <span class="p">{}):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">new_key</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__getitem__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__getitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get item associated to the key.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>key</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[<span title="typing.Any">Any</span>, <span title="typing.Tuple">Tuple</span>[<span title="typing.Any">Any</span>]]</code>
+          </td>
+          <td><p>Either comma-separated values or tuples.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td><p>Value associated to the key.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Raises:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>KeyError</code>
+          </td>
+          <td><p>If the key does not belong to the NestedDict.</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</code></pre></div>
+    <p>Get the first level.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="go">{&#39;a&#39;: 0, &#39;b&#39;: 1}</span>
+</code></pre></div>
+    <p>Get a deeper value.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="go">0</span>
+</code></pre></div>
+    <p>Tuples can be passed too.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)]</span>
+<span class="go">1</span>
+</code></pre></div>
+    <p>An exception is thrown if they key does not exist.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">KeyError</span>: <span class="n">(&#39;z&#39;,)</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get item associated to the key.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key:</span>
+<span class="sd">            Either comma-separated values or tuples.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Value associated to the key.</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        KeyError: If the key does not belong to the NestedDict.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;a&quot;: 0, &quot;b&quot;: 1}}</span>
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict(d)</span>
+
+<span class="sd">        Get the first level.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd[&quot;a&quot;]</span>
+<span class="sd">        {&#39;a&#39;: 0, &#39;b&#39;: 1}</span>
+
+<span class="sd">        Get a deeper value.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd[&quot;a&quot;, &quot;a&quot;]</span>
+<span class="sd">        0</span>
+
+<span class="sd">        Tuples can be passed too.</span>
+<span class="sd">        &gt;&gt;&gt; nd[(&quot;a&quot;, &quot;b&quot;)]</span>
+<span class="sd">        1</span>
+
+<span class="sd">        An exception is thrown if they key does not exist.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd[&quot;z&quot;]</span>
+<span class="sd">        Traceback (most recent call last):</span>
+<span class="sd">        ...</span>
+<span class="sd">        KeyError: (&#39;z&#39;,)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span>
+
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">item</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__init__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">dictionary</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialize a NestedDict from a dictionary.</p>
+<p>See class docstring.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">132</span>
+<span class="normal">133</span>
+<span class="normal">134</span>
+<span class="normal">135</span>
+<span class="normal">136</span>
+<span class="normal">137</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize a NestedDict from a dictionary.</span>
+
+<span class="sd">    See class docstring.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">dictionary</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">dictionary</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span> <span class="k">if</span> <span class="n">copy</span> <span class="k">else</span> <span class="n">dictionary</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__iter__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__iter__</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Iterate over a NestedDict.</p>
+<p>Yield only the keys that are associated to a leaf value.</p>
+
+<details class="note">
+  <summary>Note</summary>
+  <p>NestedDict is a MutableMapping, thus it is possible
+to iterate over values, keys and items exactly as a dictionary.
+See the examples.</p>
+</details>
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;aa&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">},</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">nd</span><span class="p">]</span>
+<span class="go">[(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+</code></pre></div>
+    <p>Alternative to iterate over the keys.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span class="go">[(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+</code></pre></div>
+    <p>Iterate over the leaf values.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
+<span class="go">[0, 1]</span>
+</code></pre></div>
+    <p>Iterate over the items.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
+<span class="go">[((&#39;a&#39;, &#39;aa&#39;), 0), ((&#39;a&#39;, &#39;ab&#39;), 1), ((&#39;b&#39;,), 2)]</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Iterate over a NestedDict.</span>
+
+<span class="sd">    Yield only the keys that are associated to a leaf value.</span>
+
+<span class="sd">    Note:</span>
+<span class="sd">        NestedDict is a MutableMapping, thus it is possible</span>
+<span class="sd">        to iterate over values, keys and items exactly as a dictionary.</span>
+<span class="sd">        See the examples.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; d = {&quot;a&quot;: {&quot;aa&quot;: 0, &quot;ab&quot;: 1}, &quot;b&quot;: 2}</span>
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict(d)</span>
+<span class="sd">        &gt;&gt;&gt; [key for key in nd]</span>
+<span class="sd">        [(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+
+<span class="sd">        Alternative to iterate over the keys.</span>
+
+<span class="sd">        &gt;&gt;&gt; [key for key in nd.keys()]</span>
+<span class="sd">        [(&#39;a&#39;, &#39;aa&#39;), (&#39;a&#39;, &#39;ab&#39;), (&#39;b&#39;,)]</span>
+
+<span class="sd">        Iterate over the leaf values.</span>
+
+<span class="sd">        &gt;&gt;&gt; [value for value in nd.values()]</span>
+<span class="sd">        [0, 1]</span>
+
+<span class="sd">        Iterate over the items.</span>
+<span class="sd">        &gt;&gt;&gt; [item for item in nd.items()]</span>
+<span class="sd">        [((&#39;a&#39;, &#39;aa&#39;), 0), ((&#39;a&#39;, &#39;ab&#39;), 1), ((&#39;b&#39;,), 2)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">wrapped</span><span class="p">(</span><span class="n">ndict</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="p">[]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Traverse the nested dictionary recursively,</span>
+<span class="sd">        yield the key once a leaf value is reached.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ndict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">node</span><span class="p">,</span> <span class="n">branch</span> <span class="ow">in</span> <span class="n">ndict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+                <span class="k">yield from</span> <span class="n">wrapped</span><span class="p">(</span><span class="n">branch</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+                <span class="n">key</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">wrapped</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__len__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__len__</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Number of leaf values.</p>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;aa&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">},</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">nd</span><span class="p">)</span>
+<span class="go">3</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Number of leaf values.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict({&quot;a&quot;: {&quot;aa&quot;: 0, &quot;ab&quot;: 0}, &quot;b&quot;: 0})</span>
+<span class="sd">        &gt;&gt;&gt; len(nd)</span>
+<span class="sd">        3</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+        <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">length</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.__setitem__" class="doc doc-heading">
+<code class="highlight language-python"><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Set the key to the given value.</p>
+<p>If the key does not exist it is created.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>key</code></td>
+          <td>
+                <code><span title="typing.Union">Union</span>[<span title="typing.Any">Any</span>, <span title="typing.Tuple">Tuple</span>[<span title="typing.Any">Any</span>]]</code>
+          </td>
+          <td><p>Key to be set.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td><p>New value for the key.</p></td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <p>Set an existing key.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;aa&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1}})</span>
+</code></pre></div>
+    <p>Set a new key.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;ab&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1, &#39;ab&#39;: 2}})</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Any</span><span class="p">]],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the key to the given value.</span>
+
+<span class="sd">    If the key does not exist it is created.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key: Key to be set.</span>
+<span class="sd">        value: New value for the key.</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        Set an existing key.</span>
+
+<span class="sd">        &gt;&gt;&gt; nd = NestedDict({&quot;a&quot;: {&quot;aa&quot;: 0}})</span>
+<span class="sd">        &gt;&gt;&gt; nd[&quot;a&quot;, &quot;aa&quot;] = 1</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1}})</span>
+
+<span class="sd">        Set a new key.</span>
+<span class="sd">        &gt;&gt;&gt; nd[&quot;a&quot;, &quot;ab&quot;] = 2</span>
+<span class="sd">        &gt;&gt;&gt; nd</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;aa&#39;: 1, &#39;ab&#39;: 2}})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="p">(</span><span class="n">key</span><span class="p">,)</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">key</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">item</span><span class="p">[</span><span class="n">key</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.copy" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">copy</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a deep copy.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a deep copy.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.from_product" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_product</span><span class="p">(</span><span class="o">*</span><span class="n">keys</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialize a NestedDict from the cartesian product of the keys.</p>
+<p>A common value can be assigned to all keys.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>*keys</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Iterable">Iterable</span>]</code>
+          </td>
+          <td><p>Input iterables.</p></td>
+          <td>
+                <code>()</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td><p>Value assigned to all keys.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="ndicts.ndicts.T">T</span></code>
+          </td>
+          <td><p>NestedDict</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">keys</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NestedDict</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="o">*</span><span class="n">keys</span><span class="p">)</span>
+<span class="go">NestedDict({&#39;A&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}, &#39;B&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}})</span>
+</code></pre></div>
+    <p>Initialize with a different value.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">NestedDict</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="o">*</span><span class="n">keys</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">NestedDict({&#39;A&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}, &#39;B&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}})</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 74</span>
+<span class="normal"> 75</span>
+<span class="normal"> 76</span>
+<span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_product</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">keys</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Iterable</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize a NestedDict from the cartesian product of the keys.</span>
+
+<span class="sd">    A common value can be assigned to all keys.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        *keys: Input iterables.</span>
+<span class="sd">        value: Value assigned to all keys.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        NestedDict</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; keys = [(&quot;A&quot;, &quot;B&quot;), (&quot;a&quot;, &quot;b&quot;)]</span>
+<span class="sd">        &gt;&gt;&gt; NestedDict.from_product(*keys)</span>
+<span class="sd">        NestedDict({&#39;A&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}, &#39;B&#39;: {&#39;a&#39;: None, &#39;b&#39;: None}})</span>
+
+<span class="sd">        Initialize with a different value.</span>
+
+<span class="sd">        &gt;&gt;&gt; NestedDict.from_product(*keys, value=0)</span>
+<span class="sd">        NestedDict({&#39;A&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}, &#39;B&#39;: {&#39;a&#39;: 0, &#39;b&#39;: 0}})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">keys</span><span class="p">):</span>
+        <span class="n">instance</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">instance</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.from_tuples" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">from_tuples</span><span class="p">(</span><span class="o">*</span><span class="n">tuples</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Initialize a NestedDict from a list of iterables.</p>
+<p>A common value can be assigned to all keys.</p>
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>tuples</code></td>
+          <td>
+                <code><span title="typing.List">List</span>[<span title="typing.Iterable">Iterable</span>]</code>
+          </td>
+          <td><p>Tuples corresponding to the keys of the NestedDict.</p></td>
+          <td>
+                <code>()</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>value</code></td>
+          <td>
+                <code><span title="typing.Any">Any</span></code>
+          </td>
+          <td><p>Value assigned to all keys.</p></td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code><span title="ndicts.ndicts.T">T</span></code>
+          </td>
+          <td><p>NestedDict</p></td>
+        </tr>
+    </tbody>
+  </table>
+
+<p><strong>Examples:</strong></p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NestedDict</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="o">*</span><span class="n">tuples</span><span class="p">)</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;aa&#39;: None}, &#39;b&#39;: None})</span>
+</code></pre></div>
+    <p>Initialize with a different value.</p>
+    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">NestedDict</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="o">*</span><span class="n">tuples</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="go">NestedDict({&#39;a&#39;: {&#39;aa&#39;: 0}, &#39;b&#39;: 0})</span>
+</code></pre></div>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">103</span>
+<span class="normal">104</span>
+<span class="normal">105</span>
+<span class="normal">106</span>
+<span class="normal">107</span>
+<span class="normal">108</span>
+<span class="normal">109</span>
+<span class="normal">110</span>
+<span class="normal">111</span>
+<span class="normal">112</span>
+<span class="normal">113</span>
+<span class="normal">114</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span>
+<span class="normal">121</span>
+<span class="normal">122</span>
+<span class="normal">123</span>
+<span class="normal">124</span>
+<span class="normal">125</span>
+<span class="normal">126</span>
+<span class="normal">127</span>
+<span class="normal">128</span>
+<span class="normal">129</span>
+<span class="normal">130</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">from_tuples</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">tuples</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Iterable</span><span class="p">],</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize a NestedDict from a list of iterables.</span>
+
+<span class="sd">    A common value can be assigned to all keys.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        tuples: Tuples corresponding to the keys of the NestedDict.</span>
+<span class="sd">        value: Value assigned to all keys.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        NestedDict</span>
+
+<span class="sd">    Examples:</span>
+<span class="sd">        &gt;&gt;&gt; tuples = [(&quot;a&quot;, &quot;aa&quot;), (&quot;b&quot;,)]</span>
+<span class="sd">        &gt;&gt;&gt; NestedDict.from_tuples(*tuples)</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;aa&#39;: None}, &#39;b&#39;: None})</span>
+
+<span class="sd">        Initialize with a different value.</span>
+
+<span class="sd">        &gt;&gt;&gt; NestedDict.from_tuples(*tuples, value=0)</span>
+<span class="sd">        NestedDict({&#39;a&#39;: {&#39;aa&#39;: 0}, &#39;b&#39;: 0})</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ndict</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span>
+    <span class="k">for</span> <span class="nb">tuple</span> <span class="ow">in</span> <span class="n">tuples</span><span class="p">:</span>
+        <span class="n">ndict</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">ndict</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+
+<h2 id="ndicts.ndicts.NestedDict.to_dict" class="doc doc-heading">
+<code class="highlight language-python"><span class="n">to_dict</span><span class="p">()</span></code>
+
+</h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a copy as a dictionary.</p>
+
+      <details class="quote">
+        <summary>Source code in <code>ndicts\ndicts.py</code></summary>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a copy as a dictionary.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+      </details>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../quickstart/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quickstart" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Quickstart
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../extra_methods/" class="md-footer__link md-footer__link--next" aria-label="Next: MutableMapping methods" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              MutableMapping methods
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      
+    
+    
+  </body>
+</html>
