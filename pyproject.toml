@@ -3,6 +3,10 @@ name = "ndicts"
 version = "0.2.0"
 description = "Class to handle nested dictionaries"
 authors = ["Edoardo Cicirello <e.cicirello@protonmail.com>"]
+readme = "README.md"
+documentation = "https://edd313.github.io/ndicts/"
+repository = "https://github.com/edd313/ndicts"
+keywords = ["nested", "dictionary"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
