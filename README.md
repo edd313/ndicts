@@ -31,7 +31,7 @@ Install `ndicts` with `pip`.
 pip install ndicts
 ```
 
-# Quickstart
+# Overview
 
 Import `NestedDict` and `DataDict`.
 
@@ -76,6 +76,10 @@ Iterate over a `NestedDict`.
 ('Book 2', 'Section 1')
 ('Book 2', 'Section 2', 'Paragraph 1')
 ```
+
+# Documentation
+
+https://edd313.github.io/ndicts/
 
 # Licence
 `ndicts` is licensed under the MIT license.
