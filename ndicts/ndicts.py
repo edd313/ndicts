@@ -298,14 +298,30 @@ class NestedDict(MutableMapping):
 
     @property
     def extract(self):
-        """Extract item as a NestedDict."""
+        """
+        Get item as a NestedDict.
+
+        Instead of a dict or a value, a NestedDict is returned.
+        The method can be used for filtering.
+        An empty string "" can be used as a wildcard to match all levels.
+
+        Examples:
+             >>> nd = NestedDict.from_product("ab", "xy", value=0)
+             NestedDict({'a': {'x': 0, 'y': 0}, 'b': {'x': 0, 'y': 0}})
+             >>> nd.extract["a"]
+             NestedDict({'a': {'x': 0, 'y': 0}})
+
+             Use the wildcard to extract all items with "x" on the second level.
+             >>> nd.extract["", "x"]
+             NestedDict({'a': {'x': 0}, 'b': {'x': 0}})
+        """
         return _Extractor(self)
 
     def copy(self) -> T:
         """Return a deep copy."""
         return deepcopy(self)
 
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """Return a copy as a dictionary."""
         return deepcopy(self._ndict)
 
