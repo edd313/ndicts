@@ -926,7 +926,8 @@ similar to standard dictionaries.</p>
 <span class="normal">339</span>
 <span class="normal">340</span>
 <span class="normal">341</span>
-<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">NestedDict</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">):</span>
+<span class="normal">342</span>
+<span class="normal">343</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">NestedDict</span><span class="p">(</span><span class="n">MutableMapping</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Nested dictionary data structure.</span>
 
@@ -1192,7 +1193,7 @@ similar to standard dictionaries.</p>
 <span class="sd">            Iterate over the leaf values.</span>
 
 <span class="sd">            &gt;&gt;&gt; [value for value in nd.values()]</span>
-<span class="sd">            [0, 1]</span>
+<span class="sd">            [0, 1, 2]</span>
 
 <span class="sd">            Iterate over the items.</span>
 <span class="sd">            &gt;&gt;&gt; [item for item in nd.items()]</span>
@@ -1239,6 +1240,7 @@ similar to standard dictionaries.</p>
 
 <span class="sd">        Examples:</span>
 <span class="sd">             &gt;&gt;&gt; nd = NestedDict.from_product(&quot;ab&quot;, &quot;xy&quot;, value=0)</span>
+<span class="sd">             &gt;&gt;&gt; nd</span>
 <span class="sd">             NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
 <span class="sd">             &gt;&gt;&gt; nd.extract[&quot;a&quot;]</span>
 <span class="sd">             NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
@@ -1292,6 +1294,7 @@ An empty string "" can be used as a wildcard to match all levels.</p>
 
 <p><strong>Examples:</strong></p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span> <span class="o">=</span> <span class="n">NestedDict</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span>
 <span class="go">NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}, &#39;b&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">nd</span><span class="o">.</span><span class="n">extract</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 <span class="go">NestedDict({&#39;a&#39;: {&#39;x&#39;: 0, &#39;y&#39;: 0}})</span>
@@ -1702,7 +1705,7 @@ See the examples.</p>
 </code></pre></div>
     <p>Iterate over the leaf values.</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">value</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
-<span class="go">[0, 1]</span>
+<span class="go">[0, 1, 2]</span>
 </code></pre></div>
     <p>Iterate over the items.</p>
     <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">nd</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
@@ -1778,7 +1781,7 @@ See the examples.</p>
 <span class="sd">        Iterate over the leaf values.</span>
 
 <span class="sd">        &gt;&gt;&gt; [value for value in nd.values()]</span>
-<span class="sd">        [0, 1]</span>
+<span class="sd">        [0, 1, 2]</span>
 
 <span class="sd">        Iterate over the items.</span>
 <span class="sd">        &gt;&gt;&gt; [item for item in nd.items()]</span>
@@ -1998,9 +2001,9 @@ See the examples.</p>
 
       <details class="quote">
         <summary>Source code in <code>ndicts\ndicts.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">336</span>
-<span class="normal">337</span>
-<span class="normal">338</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a deep copy.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2313,9 +2316,9 @@ See the examples.</p>
 
       <details class="quote">
         <summary>Source code in <code>ndicts\ndicts.py</code></summary>
-        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+        <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return a copy as a dictionary.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ndict</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
