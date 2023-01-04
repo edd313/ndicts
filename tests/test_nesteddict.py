@@ -2,23 +2,39 @@
 
 from itertools import product
 import pytest
+
+import more_itertools
+
 from ndicts import __version__
 from ndicts import NestedDict
 
 
 def test_init():
     d = {"a": {"a": 0, "b": 0}, "b": {"a": 0, "b": 0}}
-    assert NestedDict(d) == NestedDict.from_product(["a", "b"], ["a", "b"], value=0)
+    assert NestedDict(d) == NestedDict.from_product([["a", "b"], ["a", "b"]], values=0)
+
+
+def test_from_product():
+    nd = NestedDict.from_product(["a", "ab"], values="asd")
+    assert nd == NestedDict({"a": {"a": "asd", "b": "asd"}})
+
+    nd = NestedDict.from_product(["a", "ab"], values=range(2))
+    assert nd == NestedDict({"a": {"a": 0, "b": 1}})
+
+    with pytest.raises(more_itertools.UnequalIterablesError):
+        NestedDict.from_product(["a", "ab"], values=range(1))
+
+    with pytest.raises(more_itertools.UnequalIterablesError):
+        NestedDict.from_product(["a", "ab"], values=range(3))
 
 
 def test_init_classmethods():
+    """Cross check that from_tuples and from_product produce same results"""
     iterables = [["a", "b"], ["x", "y"], ["u", "v"]]
     tuples = list(product(*iterables))
 
-    assert NestedDict.from_product(*iterables) == NestedDict.from_tuples(*tuples)
-    assert NestedDict.from_product(*iterables, value=0) == NestedDict.from_tuples(
-        *tuples, value=0
-    )
+    assert NestedDict.from_product(iterables) == NestedDict.from_tuples(tuples)
+    assert NestedDict.from_product(iterables, values=0) == NestedDict.from_tuples(tuples, values=0)
 
 
 def test_getitem():
@@ -65,7 +81,7 @@ def test_delitem():
 def test_iter():
     iterables = [["a", "b"], ["x", "y"]]
     keys = list(product(*iterables))
-    nd = NestedDict.from_product(*iterables)
+    nd = NestedDict.from_product(iterables)
     for key in nd:
         assert key in keys
 
@@ -73,14 +89,14 @@ def test_iter():
 def test_iter_keys():
     iterables = [["a", "b"], ["x", "y"]]
     keys = list(product(*iterables))
-    nd = NestedDict.from_product(*iterables)
+    nd = NestedDict.from_product(iterables)
     for key in nd.keys():
         assert key in keys
 
 
 def test_iter_values():
     iterables = [["a", "b"], ["x", "y"]]
-    nd = NestedDict.from_product(*iterables)
+    nd = NestedDict.from_product(iterables)
     for value in nd.values():
         assert value is None
 
@@ -88,7 +104,7 @@ def test_iter_values():
 def test_iter_items():
     iterables = [["a", "b"], ["x", "y"]]
     keys = list(product(*iterables))
-    nd = NestedDict.from_product(*iterables)
+    nd = NestedDict.from_product(iterables)
     for key, value in nd.items():
         assert key in keys
         assert value is None
@@ -96,7 +112,7 @@ def test_iter_items():
 
 def test_len():
     assert len(NestedDict()) == 0
-    assert len(NestedDict.from_product("ab", "ab")) == 4
+    assert len(NestedDict.from_product(["ab", "ab"])) == 4
 
 
 def test_bool():
@@ -110,13 +126,20 @@ def test_str():
 
 
 def test_extract():
-    nd = NestedDict.from_product("ab", "xy")
-    assert nd.extract["a"] == NestedDict.from_product("a", "xy")
-    assert nd.extract["", "x"] == NestedDict.from_product("ab", "x")
+    nd = NestedDict.from_product(["ab", "xy"])
+    assert nd.extract["a"] == NestedDict.from_product(["a", "xy"])
+    assert nd.extract["", "x"] == NestedDict.from_product(["ab", "x"])
+
+
+def test_rows():
+    nd = NestedDict.from_product(["abc", "xyz"], values=0)
+    data = [row for row in nd.rows()]
+    data_check = [(*key, 0) for key in nd.keys()]
+    assert data == data_check
 
 
 def test_copy():
-    nd = NestedDict.from_tuples(("a", "a"), ("a", "b"))
+    nd = NestedDict.from_tuples([("a", "a"), ("a", "b")])
     nd_copy = nd.copy()
     assert nd == nd_copy
     assert nd is not nd_copy
@@ -130,7 +153,7 @@ def test_to_dict():
 
 
 def test_version():
-    assert __version__ == "0.2.1"
+    assert __version__ == "0.3.0"
 
 
 if __name__ == "__main__":

@@ -1,1 +1,1 @@
-::: ndicts.ndicts.NestedDict
+::: ndicts.nested_dict.NestedDict

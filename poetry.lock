@@ -261,6 +261,14 @@ griffe = ">=0.24"
 mkdocstrings = ">=0.19"
 
 [[package]]
+name = "more-itertools"
+version = "9.0.0"
+description = "More routines for operating on iterables, beyond itertools"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "packaging"
 version = "22.0"
 description = "Core utilities for Python packages"
@@ -434,7 +442,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "00973c2bf785a23391d88bcad64c4bacb05b51fad3fd0c3d94e0fb0f1b35dad0"
+content-hash = "c3eaf83d7862c551873fef7a3836fb8aa8ea6820ab534f149e60513acc5bfac3"
 
 [metadata.files]
 atomicwrites = []
@@ -461,6 +469,7 @@ mkdocs-material = []
 mkdocs-material-extensions = []
 mkdocstrings = []
 mkdocstrings-python = []
+more-itertools = []
 packaging = []
 pluggy = [
     {file = "pluggy-1.0.0-py2.py3-none-any.whl", hash = "sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"},
