@@ -10,7 +10,7 @@ plugins:
           docstring_style: "google"
 
 watch:
-  - ndicts/ndicts.py
+  - ndicts/nested_dict.py
 
 nav:
   - Home: index.md

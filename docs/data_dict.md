@@ -1,4 +1,4 @@
 > **Warning:**
 > The `DataDict` class is experimental.
 
-::: ndicts.ndicts.DataDict
+::: ndicts.data_dict.DataDict

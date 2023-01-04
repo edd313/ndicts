@@ -1,10 +1,8 @@
-
 from collections.abc import MutableMapping
 from copy import deepcopy
 from itertools import product
-from functools import reduce
-from numbers import Number
-from typing import Any, Callable, Generator, Iterable, List, Sequence, Tuple, TypeVar, Union
+
+from typing import Any, Generator, Iterable, List, Tuple, TypeVar, Union
 
 from more_itertools import zip_equal
 
