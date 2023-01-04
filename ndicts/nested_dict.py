@@ -1,10 +1,12 @@
-from abc import ABC, abstractmethod
+
 from collections.abc import MutableMapping
 from copy import deepcopy
 from itertools import product
 from functools import reduce
 from numbers import Number
-from typing import Any, Callable, Generator, Iterable, List, Tuple, TypeVar, Union
+from typing import Any, Callable, Generator, Iterable, List, Sequence, Tuple, TypeVar, Union
+
+from more_itertools import zip_equal
 
 
 T = TypeVar('T', bound='Parent')
@@ -72,62 +74,100 @@ class NestedDict(MutableMapping):
     """
 
     @classmethod
-    def from_product(cls, *keys: List[Iterable], value: Any = None) -> T:
-        """
-        Initialize a NestedDict from the cartesian product of the keys.
-
-        A common value can be assigned to all keys.
-
-        Args:
-            *keys: Input iterables.
-            value: Value assigned to all keys.
-
-        Returns:
-            NestedDict
-
-        Examples:
-            >>> keys = [("A", "B"), ("a", "b")]
-            >>> NestedDict.from_product(*keys)
-            NestedDict({'A': {'a': None, 'b': None}, 'B': {'a': None, 'b': None}})
-
-            Initialize with a different value.
-
-            >>> NestedDict.from_product(*keys, value=0)
-            NestedDict({'A': {'a': 0, 'b': 0}, 'B': {'a': 0, 'b': 0}})
-        """
-        instance = cls()
-        for key in product(*keys):
-            instance[key] = value
-        return instance
-
-    @classmethod
-    def from_tuples(cls, *tuples: List[Iterable], value: Any = None) -> T:
+    def from_tuples(cls, tuples: List[Iterable], values: Union[Any, Iterable] = None) -> T:
         """
         Initialize a NestedDict from a list of iterables.
 
-        A common value can be assigned to all keys.
-
         Args:
-            tuples: Tuples corresponding to the keys of the NestedDict.
-            value: Value assigned to all keys.
+            tuples:
+                Tuples corresponding to the keys of the NestedDict.
+            values:
+                If values is an iterable but not a string,
+                its values will become to those of the NestedDict.
+                If a non-iterable or string is passed,
+                it will be assigned to each value of the NestedDict.
 
         Returns:
             NestedDict
 
+        Raises:
+            UnequalIterablesError: If the keys and values have different length.
+
         Examples:
             >>> tuples = [("a", "aa"), ("b",)]
-            >>> NestedDict.from_tuples(*tuples)
+            >>> NestedDict.from_tuples(tuples)
             NestedDict({'a': {'aa': None}, 'b': None})
 
-            Initialize with a different value.
+            Initialize with a single value.
 
-            >>> NestedDict.from_tuples(*tuples, value=0)
+            >>> NestedDict.from_tuples(tuples, values=0)
             NestedDict({'a': {'aa': 0}, 'b': 0})
+
+            Initialize with different values.
+
+            >>> NestedDict.from_tuples(tuples, values=[0, 1])
+            NestedDict({'a': {'aa': 0}, 'b': 1})
+
+            Passing values with the wrong size will throw an exception.
+
+            >>> NestedDict.from_tuples(tuples, values=range(99))
+            Traceback (most recent call last):
+            ...
+            more_itertools.recipes.UnequalIterablesError: Iterables have different lengths...
         """
-        ndict = cls()
-        for tuple in tuples:
-            ndict[tuple] = value
-        return ndict
+        nd = cls()
+        if isinstance(values, Iterable) and not isinstance(values, str):
+            for key, value in zip_equal(tuples, values):
+                nd[key] = value
+        else:
+            for key in tuples:
+                nd[key] = values
+        return nd
+
+    @classmethod
+    def from_product(cls, iterables: List[Iterable], values: Union[Any, Iterable] = None) -> T:
+        """
+        Initialize a NestedDict by cartesian product.
+
+        Args:
+            iterables:
+                Input iterables.
+            values:
+                If values is an iterable but not a string,
+                it will be assigned to the values of the NestedDict.
+                If a non-iterable or string is passed,
+                it will be assigned to each value of the NestedDict.
+
+        Returns:
+            NestedDict
+
+        Raises:
+            UnequalIterablesError: If the keys and values have different length.
+
+        Examples:
+            >>> iterables = [("A", "B"), ("a", "b")]
+            >>> NestedDict.from_product(iterables)
+            NestedDict({'A': {'a': None, 'b': None}, 'B': {'a': None, 'b': None}})
+
+            Initialize with a single value.
+
+            >>> NestedDict.from_product(iterables, values=0)
+            NestedDict({'A': {'a': 0, 'b': 0}, 'B': {'a': 0, 'b': 0}})
+
+            Initialize with different values.
+
+            >>> NestedDict.from_product(iterables, values=[0, 1, 2, 3])
+            NestedDict({'A': {'a': 0, 'b': 1}, 'B': {'a': 2, 'b': 3}})
+
+            Passing values with the wrong size will throw an exception.
+
+            >>> NestedDict.from_product(iterables, values=range(99))
+            Traceback (most recent call last):
+            ...
+            more_itertools.recipes.UnequalIterablesError: Iterables have different lengths
+        """
+        keys = product(*iterables)
+        return cls.from_tuples(keys, values)
 
     def __init__(self, dictionary: dict = None, copy: bool = False) -> None:
         """
@@ -139,7 +179,7 @@ class NestedDict(MutableMapping):
             dictionary = {}
         self._ndict = deepcopy(dictionary) if copy else dictionary
 
-    def __getitem__(self, key: Union[Any, Tuple[Any]]) -> Any:
+    def __getitem__(self, key: Union[Any, Tuple]) -> Any:
         """
         Get item associated to the key.
 
@@ -191,7 +231,7 @@ class NestedDict(MutableMapping):
                 raise KeyError(key)
         return item
 
-    def __setitem__(self, key: Union[Any, Tuple[Any]], value: Any) -> None:
+    def __setitem__(self, key: Union[Any, Tuple], value: Any) -> None:
         """
         Set the key to the given value.
 
@@ -221,7 +261,7 @@ class NestedDict(MutableMapping):
             item = item.setdefault(k, {})
         item[key[-1]] = value
 
-    def __delitem__(self, key: Union[Any, Tuple[Any]]) -> None:
+    def __delitem__(self, key: Union[Any, Tuple]) -> None:
         """
         Delete item corresponding to the key.
 
@@ -322,7 +362,7 @@ class NestedDict(MutableMapping):
         An empty string "" can be used as a wildcard to match all levels.
 
         Examples:
-             >>> nd = NestedDict.from_product("ab", "xy", value=0)
+             >>> nd = NestedDict.from_product(["ab", "xy"], values=0)
              >>> nd
              NestedDict({'a': {'x': 0, 'y': 0}, 'b': {'x': 0, 'y': 0}})
              >>> nd.extract["a"]
@@ -333,6 +373,27 @@ class NestedDict(MutableMapping):
              NestedDict({'a': {'x': 0}, 'b': {'x': 0}})
         """
         return _Extractor(self)
+
+    def rows(self) -> Generator:
+        """
+        Yield the NestedDict row by row.
+
+        A row is obtained by adding the leaf value
+        to the sequence of its key.
+
+        Notes:
+            This method can be useful to export
+            a NestedDict to a pandas DataFrame.
+
+        Yields:
+            A row of the NestedDict.
+
+        Examples:
+            >>> nd = NestedDict({"a": 0, "b": {"ba": 1}, "c": 2})
+            >>> [row for row in nd.rows()]
+            [('a', 0), ('b', 'ba', 1), ('c', 2)]
+        """
+        return ((*key, value) for key, value in self.items())
 
     def copy(self) -> T:
         """Return a deep copy."""
@@ -375,99 +436,4 @@ class _Extractor:
         return item
 
 
-class _Arithmetics(ABC):
-    """
-    Mixin class providing methods for arithmetic operations.
-    Useful when all operations share the same base mechanism.
-    """
 
-    @abstractmethod
-    def _arithmetic_operation(
-        self, other, operation: str = "__add__", symbol: str = "+"
-    ):
-        """General implementation of any arithmetic operation, just pass the operation and symbol
-        Once this is defined all methods below should work"""
-        raise NotImplementedError
-
-    def __add__(self, other):
-        return self._arithmetic_operation(other, "__add__", "+")
-
-    def __sub__(self, other):
-        return self._arithmetic_operation(other, "__sub__", "-")
-
-    def __mul__(self, other):
-        return self._arithmetic_operation(other, "__mul__", "*")
-
-    def __truediv__(self, other):
-        return self._arithmetic_operation(other, "__truediv__", "/")
-
-    def __floordiv__(self, other):
-        return self._arithmetic_operation(other, "__floordiv__", "//")
-
-    def __mod__(self, other):
-        return self._arithmetic_operation(other, "__mod__", "%")
-
-    def __pow__(self, other):
-        return self._arithmetic_operation(other, "__pow__", "**")
-
-    def __neg__(self):
-        return self * -1
-
-
-class DataDict(NestedDict, _Arithmetics):
-    """A NestedDict that supports arithmetics.
-    Other methods are included that make DataDict similar to DataFrames."""
-
-    def _arithmetic_operation(self, other, operation: str, symbol: str):
-        """Implements any arithmetic operation, just pass the underlying method as string
-        The symbol, passed as a string, will appear in the exception message if any
-        The operation is performed only between NestedProperties or with numbers"""
-        result = self.copy()
-        if isinstance(other, self.__class__):
-            for other_key, other_value in other.items():
-                if other_key in self:
-                    for key, value in self.extract[other_key].items():
-                        result[key] = getattr(value, operation).__call__(other_value)
-                else:
-                    raise TypeError(
-                        f"unsupported operand type(s) for {symbol}: incompatible keys"
-                    )
-            return result
-
-        elif isinstance(other, Number):
-            for key, value in self.items():
-                result[key] = getattr(value, operation).__call__(other)
-            return result
-
-        return TypeError(
-            f"unsupported operand type(s) for {symbol}: {type(self)} and {type(other)}"
-        )
-
-    def apply(self, func: Callable, inplace: bool = False):
-        """Apply func to all values."""
-        if inplace:
-            for key, leaf in self.items():
-                self[key] = func(leaf)
-        else:
-            new_self = self.copy()
-            for key, leaf in new_self.items():
-                new_self[key] = func(leaf)
-            return new_self
-
-    def reduce(self, func: Callable, *initial: Any):
-        """Pass func and initial to functools.reduce and apply it to all values."""
-        return reduce(func, self.values(), *initial)
-
-    def total(self):
-        """Returns sum of all values."""
-        return sum(self.values())
-
-    def mean(self) -> Number:
-        """Returns mean of all values."""
-        return self.total() / len(self)
-
-    def std(self) -> Number:
-        """Returns standard deviation of all values."""
-        step = self.reduce(lambda a, b: a + (b - self.mean()) ** 2, 0)
-        step /= len(self) - 1
-        return step**0.5
