@@ -18,9 +18,20 @@ mkdocs = "^1.4.2"
 mkdocstrings = {extras = ["python"], version = "^0.19.1"}
 mkdocs-material = "^8.5.11"
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.0.259"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.pytest.ini_options]
 addopts = "--doctest-modules"
+
+[tool.ruff]
+select = ["E", "F", "I", "N", "D", "A", "PTH", "ERA"]
+ignore = ["D100", "D101", "D102", "D103", "D104", "D105", "D106", "D107"]
+line-length = 100
+
+[tool.ruff.pydocstyle]
+convention = "google"

@@ -1,18 +1,15 @@
 from collections.abc import MutableMapping
 from copy import deepcopy
 from itertools import product
-
 from typing import Any, Generator, Iterable, List, Tuple, TypeVar, Union
 
 from more_itertools import zip_equal
-
 
 T = TypeVar('T', bound='Parent')
 
 
 class NestedDict(MutableMapping):
-    """
-    Nested dictionary data structure.
+    """Nested dictionary data structure.
 
     Handle nested dictionaries with an interface
     similar to standard dictionaries.
@@ -73,8 +70,7 @@ class NestedDict(MutableMapping):
 
     @classmethod
     def from_tuples(cls, tuples: List[Iterable], values: Union[Any, Iterable] = None) -> T:
-        """
-        Initialize a NestedDict from a list of iterables.
+        """Initialize a NestedDict from a list of iterables.
 
         Args:
             tuples:
@@ -124,8 +120,7 @@ class NestedDict(MutableMapping):
 
     @classmethod
     def from_product(cls, iterables: List[Iterable], values: Union[Any, Iterable] = None) -> T:
-        """
-        Initialize a NestedDict by cartesian product.
+        """Initialize a NestedDict by cartesian product.
 
         Args:
             iterables:
@@ -168,8 +163,7 @@ class NestedDict(MutableMapping):
         return cls.from_tuples(keys, values)
 
     def __init__(self, dictionary: dict = None, copy: bool = False) -> None:
-        """
-        Initialize a NestedDict from a dictionary.
+        """Initialize a NestedDict from a dictionary.
         
         See class docstring.
         """
@@ -178,8 +172,7 @@ class NestedDict(MutableMapping):
         self._ndict = deepcopy(dictionary) if copy else dictionary
 
     def __getitem__(self, key: Union[Any, Tuple]) -> Any:
-        """
-        Get item associated to the key.
+        """Get item associated to the key.
 
         Args:
             key:
@@ -230,8 +223,7 @@ class NestedDict(MutableMapping):
         return item
 
     def __setitem__(self, key: Union[Any, Tuple], value: Any) -> None:
-        """
-        Set the key to the given value.
+        """Set the key to the given value.
 
         If the key does not exist it is created.
 
@@ -260,8 +252,7 @@ class NestedDict(MutableMapping):
         item[key[-1]] = value
 
     def __delitem__(self, key: Union[Any, Tuple]) -> None:
-        """
-        Delete item corresponding to the key.
+        """Delete item corresponding to the key.
 
         If the levels above are left empty, they are deleted.
 
@@ -290,8 +281,7 @@ class NestedDict(MutableMapping):
             self.__delitem__(new_key)
 
     def __iter__(self) -> Generator:
-        """
-        Iterate over a NestedDict.
+        """Iterate over a NestedDict.
 
         Yield only the keys that are associated to a leaf value.
 
@@ -321,8 +311,10 @@ class NestedDict(MutableMapping):
             [(('a', 'aa'), 0), (('a', 'ab'), 1), (('b',), 2)]
         """
         def wrapped(ndict, key=[]):
-            """Traverse the nested dictionary recursively,
-            yield the key once a leaf value is reached."""
+            """Traverse the nested dictionary recursively.
+
+            Yield the key once a leaf value is reached.
+            """
             if not isinstance(ndict, dict):
                 yield tuple(key)
             else:
@@ -334,8 +326,7 @@ class NestedDict(MutableMapping):
         return wrapped(self._ndict)
 
     def __len__(self) -> int:
-        """
-        Number of leaf values.
+        """Number of leaf values.
 
         Examples:
             >>> nd = NestedDict({"a": {"aa": 0, "ab": 0}, "b": 0})
@@ -352,8 +343,7 @@ class NestedDict(MutableMapping):
 
     @property
     def extract(self):
-        """
-        Get item as a NestedDict.
+        """Get item as a NestedDict.
 
         Instead of a dict or a value, a NestedDict is returned.
         The method can be used for filtering.
@@ -373,8 +363,7 @@ class NestedDict(MutableMapping):
         return _Extractor(self)
 
     def rows(self) -> Generator:
-        """
-        Yield the NestedDict row by row.
+        """Yield the NestedDict row by row.
 
         A row is obtained by adding the leaf value
         to the sequence of its key.
@@ -403,16 +392,16 @@ class NestedDict(MutableMapping):
 
 
 class _Extractor:
-    """Class that allows methods of other classes to have square brackets"""
+    """Class that allows methods of other classes to have square brackets."""
 
     def __init__(self, extractee):
         self._extractee = extractee
 
     def __getitem__(self, key):
-        """Where _extractee would only return the value for a given key,
-        this method returns a new _exctractee instance including the key as well.
+        """Returns a new _exctractee instance including the key as well.
 
-        An empty string means all keys are chosen"""
+        An empty string means all keys are chosen.
+        """
         if type(key) is not tuple:
             key = (key,)
         item = self._extractee.__class__()

@@ -1,4 +1,4 @@
-"""Tests for the DataDict class"""
+"""Tests for the DataDict class."""
 
 import pytest
 
@@ -38,7 +38,7 @@ def test_arithmetics():
 
 
 def test_arithmetics_extract(dd):
-    """Extract a DataDict, and perform an operation back with the original one"""
+    """Extract a DataDict, and perform an operation back with the original one."""
     dd_extract = dd.extract["", "b"]
     assert dd - dd_extract == DataDict({"a": {"a": 1, "b": 0}, "b": {"a": 1, "b": 0}})
 

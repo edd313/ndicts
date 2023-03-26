@@ -1,12 +1,11 @@
-"""Tests for the NestedDict class"""
+"""Tests for the NestedDict class."""
 
 from itertools import product
-import pytest
 
 import more_itertools
+import pytest
 
-from ndicts import __version__
-from ndicts import NestedDict
+from ndicts import NestedDict, __version__
 
 
 def test_init():
@@ -29,7 +28,7 @@ def test_from_product():
 
 
 def test_init_classmethods():
-    """Cross check that from_tuples and from_product produce same results"""
+    """Cross check that from_tuples and from_product produce same results."""
     iterables = [["a", "b"], ["x", "y"], ["u", "v"]]
     tuples = list(product(*iterables))
 

@@ -7,17 +7,23 @@ from ndicts import NestedDict
 
 
 class _Arithmetics(ABC):
-    """
-    Mixin class providing methods for arithmetic operations.
+    """Mixin class providing methods for arithmetic operations.
+
     Useful when all operations share the same base mechanism.
     """
 
     @abstractmethod
     def _arithmetic_operation(
-        self, other, operation: str = "__add__", symbol: str = "+"
+        self,
+        other,
+        operation: str = "__add__",
+        symbol: str = "+"
     ):
-        """General implementation of any arithmetic operation, just pass the operation and symbol
-        Once this is defined all methods below should work"""
+        """General implementation of any arithmetic operation.
+
+         Just pass the operation and symbol.
+        Once this is defined all methods below should work.
+        """
         raise NotImplementedError
 
     def __add__(self, other):
@@ -47,12 +53,16 @@ class _Arithmetics(ABC):
 
 class DataDict(NestedDict, _Arithmetics):
     """A NestedDict that supports arithmetics.
-    Other methods are included that make DataDict similar to DataFrames."""
+
+    Other methods are included that make DataDict similar to DataFrames.
+    """
 
     def _arithmetic_operation(self, other, operation: str, symbol: str):
-        """Implements any arithmetic operation, just pass the underlying method as string
+        """Implements any arithmetic operation, just pass the underlying method as string.
+
         The symbol, passed as a string, will appear in the exception message if any
-        The operation is performed only between NestedProperties or with numbers"""
+        The operation is performed only between NestedProperties or with numbers.
+        """
         result = self.copy()
         if isinstance(other, self.__class__):
             for other_key, other_value in other.items():
